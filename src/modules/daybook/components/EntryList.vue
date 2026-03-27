@@ -9,6 +9,14 @@
             />
         </div>
 
+        <div class="mt-2 d-flex flex-column">
+            <button class="btn btn-primary mx-3"
+                @click="$router.push({name: 'entry', params: { id: 'new' }})">
+                <i class="fa fa-plus-circle"></i>
+                Nueva entrada
+            </button>
+        </div>
+
         <div class="entry-scrollarea">
             <EntryData
             v-for="entry in entriesByTerm"
@@ -21,6 +29,7 @@
 <script>
 import { defineAsyncComponent } from 'vue';
 import { mapGetters } from 'vuex';
+import router from '../router';
 
     export default {
         components: {
