@@ -57,6 +57,7 @@ import uploadImage from '../helpers/uploadImage';
 import Swal from 'sweetalert2';
 
 export default {
+    name: 'EntryView',
     props: {
         id: {
             type: String,
@@ -134,7 +135,6 @@ export default {
             
         },
         async onDeleteEntry() {
-
             const { isConfirmed } = await Swal.fire({
                 title: '¿Está seguro?',
                 text: "¡No podrás revertir esto!",
@@ -143,15 +143,15 @@ export default {
             })
 
             if (isConfirmed) {
-                new Swal({
+                Swal.fire({
                     title: 'Espere por favor',
                     allowOutsideClick: false,
                 })
                 Swal.showLoading();
-            
+
             // console.log('delete', this.entry)
-            await this.deleteEntry(this.entry.id)
-            this.$router.push({ name: 'no-entry'})
+             await this.deleteEntry(this.entry.id)
+             this.$router.push({ name: 'no-entry'})
 
             Swal.fire('Borrado', 'success')
             }

@@ -1,6 +1,6 @@
 
 
-export default [
+export default
   {
     
     name: 'daybook',
@@ -24,4 +24,3 @@ export default [
     ]
     
   }
-]
